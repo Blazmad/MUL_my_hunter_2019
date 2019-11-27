@@ -28,8 +28,8 @@ void draw_sprite(sfRenderWindow *window, hitler_t *hitler)
 {
     sfRenderWindow_drawSprite(window, hitler->s_background, NULL);
     sfRenderWindow_drawSprite(window, hitler->s_hitler, NULL);
-    // sfRenderWindow_setPosition(hitler->s_sniper, hitler->mouse);
-    // sfRenderWindow_drawSprite(window, hitler->s_sniper, NULL);
+    sfSprite_setPosition(hitler->s_sniper, hitler->mouse);
+    sfRenderWindow_drawSprite(window, hitler->s_sniper, NULL);
     sfRenderWindow_display(window);
     sfRenderWindow_clear(window, sfBlack);
 }
@@ -42,6 +42,7 @@ int menu(hitler_t hitler)
     sfEvent event;
 
     sfRenderWindow_setFramerateLimit(window, 30);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window)) {
         analyse_events(window, event, &hitler);
         // clocks_hitler(hitler);
