@@ -14,7 +14,6 @@
 
 typedef struct hitler
 {
-    // sfSprite *sprite_background;
     sfSprite *s_hitler;
     sfSprite *s_background;
     sfTexture *t_hitler;
@@ -22,10 +21,10 @@ typedef struct hitler
     sfIntRect intr_hitler;
     sfIntRect intr_background;
     sfVector2f coord;
-    // sfSprite *s_sniper;
-    // sfTexture *t_sniper;
-    // sfIntRect intr_sniper;
-    // sfVector2f mouse;
+    sfSprite *s_sniper;
+    sfTexture *t_sniper;
+    sfIntRect intr_sniper;
+    sfVector2f mouse;
     int speed;
     sfClock *clocks;
     sfTime time;
@@ -33,7 +32,7 @@ typedef struct hitler
 }hitler_t;
 
 void close_window(sfRenderWindow *window, sfEvent event);
-void manage_mouse_click(sfEvent event, sfRenderWindow *window, hitler_t *hitler);
+void manage_mouse_click(sfEvent event, hitler_t *hitler);
 void analyse_events(sfRenderWindow *window, sfEvent event, hitler_t *hitler);
 hitler_t get_hitler(hitler_t hitler);
 void anim_sprite_hitler(hitler_t *hitler);
