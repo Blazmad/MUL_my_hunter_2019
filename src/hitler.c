@@ -9,7 +9,6 @@
 
 hitler_t get_hitler(hitler_t hitler)
 {
-
     hitler.intr_hitler.top = 0;
     hitler.intr_hitler.left = 0;
     hitler.intr_hitler.width = 66;
@@ -19,9 +18,9 @@ hitler_t get_hitler(hitler_t hitler)
     hitler.t_background = sfTexture_createFromFile("sprite/eagle.jpg", NULL);
     hitler.s_background = sfSprite_create();
     sfSprite_setTexture(hitler.s_background, hitler.t_background, sfTrue);
-    // hitler.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
-    // hitler.s_sniper = sfSprite_create();
-    // sfSprite_setTexture(hitler.s_sniper, hitler.t_sniper, sfTrue);
+    hitler.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
+    hitler.s_sniper = sfSprite_create();
+    sfSprite_setTexture(hitler.s_sniper, hitler.t_sniper, sfTrue);
     hitler.coord = (sfVector2f){-100, 0};
     hitler.clocks = sfClock_create();
     hitler.speed = 20;
