@@ -7,34 +7,37 @@
 
 #include "my.h"
 
-// void clocks_hitler(hitler_t hitler)
+// void clocks_hitler(game_t game)
 // {
-//     hitler.time = sfClock_getElapsedTime(hitler.clocks);
-//     hitler.seconds = hitler.time.microseconds / 1000000.0;
-//     if (hitler.seconds >= 0.1) {
-//         sfClock_restart(hitler.clocks);
-//         display_hitler(&hitler);
+//     game.time = sfClock_getElapsedTime(game.clocks);
+//     game.seconds = game.time.microseconds / 1000000.0;
+//     if (game.seconds >= 0.1) {
+//         sfClock_restart(game.clocks);
+//         display_hitler(&game);
 //     }
 // }
+        // clocks_hitler(hitler);
 
-void destroy_all(sfRenderWindow *window, hitler_t hitler)
+void destroy_all(sfRenderWindow *window, game_t game)
 {
-    sfSprite_destroy(hitler.s_hitler);
-    sfTexture_destroy(hitler.t_hitler);
+    sfSprite_destroy(game.s_hitler);
+    sfTexture_destroy(game.t_hitler);
     sfRenderWindow_destroy(window);
 }
 
-void draw_sprite(sfRenderWindow *window, hitler_t *hitler)
+void draw_sprite(sfRenderWindow *window, game_t *game, score_t *score)
 {
-    sfRenderWindow_drawSprite(window, hitler->s_background, NULL);
-    sfRenderWindow_drawSprite(window, hitler->s_hitler, NULL);
-    sfSprite_setPosition(hitler->s_sniper, hitler->mouse);
-    sfRenderWindow_drawSprite(window, hitler->s_sniper, NULL);
+    sfRenderWindow_drawSprite(window, game->s_background, NULL);
+    sfRenderWindow_drawSprite(window, game->s_hitler, NULL);
+    sfSprite_setPosition(game->s_sniper, game->mouse);
+    sfRenderWindow_drawSprite(window, game->s_sniper, NULL);
+    sfRenderWindow_drawText(window, score->text, NULL);
+    sfRenderWindow_drawText(window, score->score, NULL);
     sfRenderWindow_display(window);
     sfRenderWindow_clear(window, sfBlack);
 }
 
-int menu(hitler_t hitler)
+int menu(game_t game, score_t score)
 {
 	sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "window", sfResize |
@@ -44,25 +47,28 @@ int menu(hitler_t hitler)
     sfRenderWindow_setFramerateLimit(window, 30);
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window)) {
-        analyse_events(window, event, &hitler);
-        // clocks_hitler(hitler);
-        hitler.time = sfClock_getElapsedTime(hitler.clocks);
-        hitler.seconds = hitler.time.microseconds / 1000000.0;
-        if (hitler.seconds >= 0.1) {
-            sfClock_restart(hitler.clocks);
-            display_hitler(&hitler);
+        analyse_events(window, event, &game, &score);
+        game.time = sfClock_getElapsedTime(game.clocks);
+        game.seconds = game.time.microseconds / 1000000.0;
+        if (game.seconds >= 0.1) {
+            sfClock_restart(game.clocks);
+            display_hitler(&game);
+            display_score(score);
         }
-        draw_sprite(window, &hitler);
+        draw_sprite(window, &game, &score);
     }
-    destroy_all(window, hitler);
+    destroy_all(window, game);
     return (0);
 }
 
 int main(void)
 {
-    hitler_t hitler;
+    game_t game;
+    score_t score;
 
-    hitler = get_hitler(hitler);
-    menu(hitler);
+    game = get_hitler(game);
+    score = get_text(score);
+
+    menu(game, score);
 	return (0);
 }

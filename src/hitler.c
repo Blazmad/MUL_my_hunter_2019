@@ -7,51 +7,74 @@
 
 #include "my.h"
 
-hitler_t get_hitler(hitler_t hitler)
+void display_score(score_t score)
 {
-    hitler.intr_hitler.top = 0;
-    hitler.intr_hitler.left = 0;
-    hitler.intr_hitler.width = 66;
-    hitler.intr_hitler.height = 92;
-    hitler.t_hitler = sfTexture_createFromFile("sprite/hitler.png", NULL);
-    hitler.s_hitler = sfSprite_create();
-    hitler.t_background = sfTexture_createFromFile("sprite/eagle.jpg", NULL);
-    hitler.s_background = sfSprite_create();
-    sfSprite_setTexture(hitler.s_background, hitler.t_background, sfTrue);
-    hitler.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
-    hitler.s_sniper = sfSprite_create();
-    sfSprite_setTexture(hitler.s_sniper, hitler.t_sniper, sfTrue);
-    hitler.coord = (sfVector2f){-100, 0};
-    hitler.clocks = sfClock_create();
-    hitler.speed = 20;
-    return (hitler);
+    score.res = my_itoa(score.count);
+    sfText_setCharacterSize(score.score, 50);
+    sfText_setString(score.score, score.res);
+    sfText_setFont(score.score, score.font);
+    sfText_setPosition(score.score, (sfVector2f){885, 930});
 }
 
-void anim_sprite_hitler(hitler_t *hitler)
+score_t get_text(score_t score)
 {
-    if (hitler->intr_hitler.left < 182)
-        hitler->intr_hitler.left += 91;
+    score.score = sfText_create();
+    score.text = sfText_create();
+    score.font = sfFont_createFromFile("font/nazi_font.ttf");
+    score.count = 0;
+    score.res = 0;
+    sfText_setCharacterSize(score.text, 50);
+    sfText_setString(score.text, "|Best Score :\t\t\t\t|SCORE :\t\t\t\t\t|Life :");
+    sfText_setFont(score.text, score.font);
+    sfText_setPosition(score.text, (sfVector2f){70, 930});
+    return (score);
+}
+
+game_t get_hitler(game_t game)
+{
+    game.intr_hitler.top = 0;
+    game.intr_hitler.left = 0;
+    game.intr_hitler.width = 66;
+    game.intr_hitler.height = 92;
+    game.t_hitler = sfTexture_createFromFile("sprite/hitler.png", NULL);
+    game.s_hitler = sfSprite_create();
+    game.t_background = sfTexture_createFromFile("sprite/eagle.jpg", NULL);
+    game.s_background = sfSprite_create();
+    sfSprite_setTexture(game.s_background, game.t_background, sfTrue);
+    game.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
+    game.s_sniper = sfSprite_create();
+    sfSprite_setTexture(game.s_sniper, game.t_sniper, sfTrue);
+    game.coord = (sfVector2f){-100, 0};
+    game.clocks = sfClock_create();
+    game.speed = 20;
+    return (game);
+}
+
+void anim_sprite_hitler(game_t *game)
+{
+    if (game->intr_hitler.left < 182)
+        game->intr_hitler.left += 91;
     else
-        hitler->intr_hitler.left = 0;
+        game->intr_hitler.left = 0;
 }
 
-void move_hitler(hitler_t *hitler)
+void move_hitler(game_t *game)
 {
-    if (hitler->intr_hitler.left < 1920) {
-        if (hitler->coord.x > 1920) {
-            hitler->coord.x = -50;
-            hitler->coord.y = rand()%700;
-            hitler->speed = rand()%170;
+    if (game->intr_hitler.left < 1920) {
+        if (game->coord.x > 1920) {
+            game->coord.x = -50;
+            game->coord.y = rand()%700;
+            game->speed = rand()%170;
         }
-        hitler->coord.x = hitler->coord.x + hitler->speed;
-        sfSprite_setPosition(hitler->s_hitler, hitler->coord);
+        game->coord.x = game->coord.x + game->speed;
+        sfSprite_setPosition(game->s_hitler, game->coord);
     }
 }
 
-void display_hitler(hitler_t *hitler)
+void display_hitler(game_t *game)
 {
-    anim_sprite_hitler(hitler);
-    move_hitler(hitler);
-    sfSprite_setTexture(hitler->s_hitler, hitler->t_hitler, sfTrue);
-    sfSprite_setTextureRect(hitler->s_hitler, hitler->intr_hitler);
+    anim_sprite_hitler(game);
+    move_hitler(game);
+    sfSprite_setTexture(game->s_hitler, game->t_hitler, sfTrue);
+    sfSprite_setTextureRect(game->s_hitler, game->intr_hitler);
 }
