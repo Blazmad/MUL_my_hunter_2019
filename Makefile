@@ -6,8 +6,10 @@
 ##
 
 SRC	=	main.c	\
+		src/game.c	\
 		src/event.c	\
 		src/hitler.c	\
+		src/display_all.c	\
 		src/my_itoa.c	\
 		lib/my/my_putchar.c	\
 		lib/my/my_putstr.c	\
