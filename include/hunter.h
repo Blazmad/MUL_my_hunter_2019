@@ -66,8 +66,8 @@ void draw_sprite(sfRenderWindow *window, game_t *game, score_t *score);
 void draw_life(sfRenderWindow *window, game_t *game, score_t *score);
 void display_hitler(game_t *game, score_t *score);
 void display_score(score_t *score);
+void help(void);
 void destroy_all(sfRenderWindow *window, game_t game, score_t score);
 char *my_itoa(int number);
-
 
 #endif

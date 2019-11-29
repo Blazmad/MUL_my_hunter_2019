@@ -14,7 +14,7 @@ int main(int ac, char **av)
 
     if (ac == 2) {
         if (av[1][0] == '-' &&av[1][1] == 'h' && av[1][2] == '\0') {
-            my_putstr("HELP");
+            help();
             return (0);
         }
     }
