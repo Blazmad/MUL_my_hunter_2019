@@ -9,20 +9,20 @@
 
 char *my_itoa(int number)
 {
-    char *l = malloc(sizeof(char) * 25);
+    char *res = malloc(sizeof(char) * 20);
     int i = 0;
     int j = 1;
     int k = number;
 
     while (j <= number)
-        j = j * 10;
-    j = j / 10;
-    for (; j != 0; i++, j = j / 10, number = k) {
-        number = number / j;
-        l[i] = '0' + number;
-        k = k - j * number;
-        number = number * j;
+        j *= 10;
+    j /= 10;
+    for (; j != 0; i++, j /= 10, number = k) {
+        number /= j;
+        res[i] = number + 48;
+        k -= (j * number);
+        number *= j;
     }
-    l[i] = '\0';
-    return (l);
+    res[i] = '\0';
+    return (res);
 }
