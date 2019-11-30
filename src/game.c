@@ -29,12 +29,15 @@ int menu(game_t game, score_t score)
 
     sfRenderWindow_setFramerateLimit(window, 30);
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
+    sfMusic_play(game.wagner);
+    sfMusic_play(game.hitler);
     while (sfRenderWindow_isOpen(window)) {
         analyse_events(window, event, &game, &score);
         game_clock(window, &game, &score);
         if (score.loose == 3) {
             my_printf("\n\tYOU LOST !! Hitler Won, try again !");
             my_printf("\n\n\tYour Score : %s\n\n", score.res);
+            destroy_all(window, game, score);
             return (1);
         }
     }
@@ -58,5 +61,8 @@ void destroy_all(sfRenderWindow *window, game_t game, score_t score)
     sfSprite_destroy(game.s_star_2);
     sfSprite_destroy(game.s_star_1);
     sfTexture_destroy(game.t_star);
+    sfMusic_destroy(game.sniper);
+    sfMusic_destroy(game.wagner);
+    sfMusic_destroy(game.hitler);
     sfRenderWindow_destroy(window);
 }

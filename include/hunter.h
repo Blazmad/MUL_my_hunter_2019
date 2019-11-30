@@ -12,6 +12,7 @@
 #include <SFML/Graphics.h>
 #include <SFML/Graphics/Text.h>
 #include <SFML/Graphics/Font.h>
+#include <SFML/Audio.h>
 #include <stdlib.h>
 
 typedef struct game
@@ -38,6 +39,9 @@ typedef struct game
     sfTime time;
     float seconds;
 
+    sfMusic *sniper;
+    sfMusic *wagner;
+    sfMusic *hitler;
 }game_t;
 
 typedef struct score

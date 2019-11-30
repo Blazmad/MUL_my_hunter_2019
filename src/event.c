@@ -37,6 +37,7 @@ void manage_mouse_click(sfEvent event, game_t *game, score_t *score)
                 game->coord.y = rand()%700;
                 game->speed += 1;
                 score->count += 1;
+                sfMusic_play(game->sniper);
         }
     }
 }

@@ -36,6 +36,9 @@ game_t get_star(game_t game)
     game.coord = (sfVector2f){-100, 0};
     game.clocks = sfClock_create();
     game.speed = 20;
+    game.sniper = sfMusic_createFromFile("sound/sniper.ogg");
+    game.wagner = sfMusic_createFromFile("sound/wagner.ogg");
+    game.hitler = sfMusic_createFromFile("sound/hitler.ogg");
     return (game);
 }
 
@@ -45,6 +48,7 @@ score_t get_text(score_t score)
     score.text = sfText_create();
     score.font = sfFont_createFromFile("font/nazi_font.ttf");
     score.count = 0;
+    score.loose = 0;
     score.res = 0;
     sfText_setCharacterSize(score.text, 50);
     sfText_setString(score.text, "|Best Score :\t\t\t\t|SCORE :\t\t\t\t\t|Life :");
