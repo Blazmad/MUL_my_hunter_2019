@@ -16,6 +16,9 @@ SRC	=	main.c	\
 		lib/my/my_strlen.c	\
 		lib/my/my_put_nbr.c	\
 		lib/my/my_getnbr.c	\
+		lib/my/my_printf.c	\
+		lib/my/my_put_uns_nbr.c	\
+		lib/my/my_put_nbr_base.c	\
 
 CC	=	gcc -W -Wall -Wextra -g3
 

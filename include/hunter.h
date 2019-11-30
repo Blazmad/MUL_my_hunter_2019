@@ -12,7 +12,6 @@
 #include <SFML/Graphics.h>
 #include <SFML/Graphics/Text.h>
 #include <SFML/Graphics/Font.h>
-
 #include <stdlib.h>
 
 typedef struct game
