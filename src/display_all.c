@@ -65,5 +65,5 @@ void help(void)
     my_putstr("if Hitler manage to move to the other side, you'll lose a star.");
     my_putstr("\nYou have 3 stars. At 0 stars, YOU LOST.\n\n");
     my_putstr("USER INTERACTIONS\n");
-    my_putstr(" LEFT_CLICK_MOUSE\tshoot.");
+    my_putstr("LEFT_CLICK_MOUSE\tshoot.");
 }

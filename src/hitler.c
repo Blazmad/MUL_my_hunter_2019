@@ -18,12 +18,6 @@ game_t get_hitler(game_t game)
     game.t_background = sfTexture_createFromFile("sprite/eagle.jpg", NULL);
     game.s_background = sfSprite_create();
     sfSprite_setTexture(game.s_background, game.t_background, sfTrue);
-    game.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
-    game.s_sniper = sfSprite_create();
-    sfSprite_setTexture(game.s_sniper, game.t_sniper, sfTrue);
-    game.coord = (sfVector2f){-100, 0};
-    game.clocks = sfClock_create();
-    game.speed = 20;
     return (game);
 }
 
@@ -36,6 +30,12 @@ game_t get_star(game_t game)
     sfSprite_setTexture(game.s_star_2, game.t_star, sfTrue);
     game.s_star_3 = sfSprite_create();
     sfSprite_setTexture(game.s_star_3, game.t_star, sfTrue);
+    game.t_sniper = sfTexture_createFromFile("sprite/sniper.png", NULL);
+    game.s_sniper = sfSprite_create();
+    sfSprite_setTexture(game.s_sniper, game.t_sniper, sfTrue);
+    game.coord = (sfVector2f){-100, 0};
+    game.clocks = sfClock_create();
+    game.speed = 20;
     return (game);
 }
 

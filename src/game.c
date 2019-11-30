@@ -23,8 +23,8 @@ void game_clock(sfRenderWindow *window, game_t *game, score_t *score)
 int menu(game_t game, score_t score)
 {
 	sfVideoMode mode = {1920, 1080, 32};
-    sfRenderWindow *window = sfRenderWindow_create(mode, "window", sfResize |
-        sfClose, NULL);
+    sfRenderWindow *window = sfRenderWindow_create(mode, "Heil Hunter !",
+        sfResize | sfClose, NULL);
     sfEvent event;
 
     sfRenderWindow_setFramerateLimit(window, 30);
@@ -32,6 +32,11 @@ int menu(game_t game, score_t score)
     while (sfRenderWindow_isOpen(window)) {
         analyse_events(window, event, &game, &score);
         game_clock(window, &game, &score);
+        if (score.loose == 3) {
+            my_printf("\n\tYOU LOST !! Hitler Won, try again !");
+            my_printf("\n\n\tYour Score : %s\n\n", score.res);
+            return (1);
+        }
     }
     destroy_all(window, game, score);
     return (0);

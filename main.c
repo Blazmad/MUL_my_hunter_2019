@@ -21,6 +21,8 @@ int main(int ac, char **av)
     game = get_hitler(game);
     game = get_star(game);
     score = get_text(score);
-    menu(game, score);
+    if (menu(game, score) == 1) {
+        return (0);
+    }
 	return (0);
 }
