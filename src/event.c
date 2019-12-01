@@ -11,10 +11,10 @@
 void analyse_events(sfRenderWindow *window, sfEvent event, game_t *game,
     score_t *score)
 {
-     while (sfRenderWindow_pollEvent(window, &event)) {
-            close_window(window, event);
-            manage_mouse_click(event, game, score);
-     }
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        close_window(window, event);
+        manage_mouse_click(event, game, score);
+    }
 }
 
 void close_window(sfRenderWindow *window, sfEvent event)

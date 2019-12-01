@@ -23,22 +23,17 @@ typedef struct game
     sfSprite *s_star_1;
     sfSprite *s_star_2;
     sfSprite *s_star_3;
-
     sfTexture *t_hitler;
     sfTexture *t_background;
     sfTexture *t_sniper;
     sfTexture *t_star;
-
     sfIntRect intr_hitler;
-
     sfVector2f coord;
     sfVector2f mouse;
     int speed;
-
     sfClock *clocks;
     sfTime time;
     float seconds;
-
     sfMusic *sniper;
     sfMusic *wagner;
     sfMusic *hitler;

@@ -51,9 +51,9 @@ score_t get_text(score_t score)
     score.loose = 0;
     score.res = 0;
     sfText_setCharacterSize(score.text, 50);
-    sfText_setString(score.text, "|Best Score :\t\t\t\t|SCORE :\t\t\t\t\t|Life :");
+    sfText_setString(score.text, "Best Score :\t\t\t\tSCORE :\t\t\t\t\tLife :");
     sfText_setFont(score.text, score.font);
-    sfText_setPosition(score.text, (sfVector2f){70, 930});
+    sfText_setPosition(score.text, (sfVector2f){110, 930});
     return (score);
 }
 

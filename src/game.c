@@ -22,7 +22,7 @@ void game_clock(sfRenderWindow *window, game_t *game, score_t *score)
 
 int menu(game_t game, score_t score)
 {
-	sfVideoMode mode = {1920, 1080, 32};
+    sfVideoMode mode = {1920, 1080, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "Heil Hunter !",
         sfResize | sfClose, NULL);
     sfEvent event;
