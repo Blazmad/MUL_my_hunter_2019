@@ -13,7 +13,7 @@ int main(int ac, char **av)
     score_t score;
 
     if (ac == 2) {
-        if (av[1][0] == '-' &&av[1][1] == 'h' && av[1][2] == '\0') {
+        if (av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0') {
             help();
             return (0);
         }
