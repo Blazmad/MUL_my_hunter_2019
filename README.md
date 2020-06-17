@@ -9,10 +9,11 @@
   - target must appear on the screen and move from one side to another.
   - the player can click on them to shoot them.
   
-  For this project, I ask myself : "What or who is the person I want to shoot first ?". Obvusly, I thougth "Hitler".
-  So, let's go for a game where we can sniper Adolf Hitler's head in a background of Wagner music !!
+For this project, I asked myself : "What or who is the person I want to shoot first ?". Obvusly, I thougth of "Hitler".
+So, let's go for a game where we can sniper Adolf Hitler's head in a background of Wagner music !!
   
-  USAGE :
-  make
-  ./my_hunter
+USAGE:
+ - make
+ - ./my_hunter
  
+![](game_hunter.png)
