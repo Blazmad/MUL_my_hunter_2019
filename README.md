@@ -15,5 +15,4 @@
   USAGE :
   make
   ./my_hunter
-   
-   ![](/Pictures/game_hunter.png)
+ 
