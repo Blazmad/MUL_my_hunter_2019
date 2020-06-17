@@ -16,4 +16,4 @@
   make
   ./my_hunter
    
-   ![GitHub Logo](/Pictures/game_hunter.png)
+   ![](/Pictures/game_hunter.png)
